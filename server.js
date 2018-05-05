@@ -38,9 +38,10 @@ app.get("/", (req,res)=>{
 			console.log("Error has been detected in the main route! No index.html pages");
 			res.send("Server under maintain!");
 		})();
-	}
+		res.send(page);
+	});
 })
-	app.listen(PORT, ()=>{
-		console.log("Server is running on port:", PORT)
-	})
+app.listen(PORT, ()=>{
+	console.log("Server is running on port:", PORT)
+})
 
