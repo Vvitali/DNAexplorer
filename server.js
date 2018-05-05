@@ -4,7 +4,7 @@ let bodyParser = require('body-parser')
 var DEBUG = true;
 let PORT = 8080;	 
 app.get("/rsids/:number", (req, res)=>{
-	DEBUG && console.log("Page /");
+	DEBUG && console.log("Page: /rsids/:number");
 	let parsedDna = [];
 	// fs.readFile("./data/DNA.txt")
 	let lineReader = require('readline').createInterface({
@@ -31,7 +31,16 @@ app.get("/rsids/:number", (req, res)=>{
 	});
 });
 
-
-app.listen(PORT, ()=>{
-	console.log("Server is running on port:", PORT)
+app.get("/", (req,res)=>{
+	DEBUG && console.log("Index page has been requested!");
+	fs.readFile("./public/index.html", (error, page)=>{
+		error && (()=>{
+			console.log("Error has been detected in the main route! No index.html pages");
+			res.send("Server under maintain!");
+		})();
+	}
 })
+	app.listen(PORT, ()=>{
+		console.log("Server is running on port:", PORT)
+	})
+
