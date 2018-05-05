@@ -1,7 +1,8 @@
 let app = require("express")();
 let fs = require('fs');
+let bodyParser = require('body-parser')
 var DEBUG = true;
-let PORT = 8080;	
+let PORT = 8080;	 
 app.get("/rsids/:number", (req, res)=>{
 	DEBUG && console.log("Page /");
 	let parsedDna = [];
@@ -23,7 +24,7 @@ app.get("/rsids/:number", (req, res)=>{
 	lineReader.on('close', function (line) { 
 		console.log("Parsing is completed!");
 		let dnaPackage = parsedDna;
-		dnaPackage.length=req.body.number;
+		dnaPackage.length=req.params.number;
 		res.send(dnaPackage);
 		lineReader.close();
 
