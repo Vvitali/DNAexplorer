@@ -15,10 +15,34 @@
 		<li></li>
 	</div>
 	<script>
+		let returnAcidColor = (snp)=>{
+			console.log(snp.allele1)
+			switch(snp.allele1){
+				case "A":
+				return "green";
+				break;
+				case "C":
+				return "orange";
+				break;
+				case "G":
+				return "blue";
+				break;
+				case "T":
+				return "red";
+				break;
+				case "U":
+				return "green";
+				break;
+				default:
+				return "white";
+				break;
+			} 
+		}
+
 		console.log("start!");
 		var mainD = d3.select(main);
 		var SNPs = null;
-		$.get("/rsids/10", (data, error)=>{
+		$.get("/rsids/20", (data, error)=>{
 			console.log("Data retrieved!");
 			console.log(data)
 			SNPs = data;
@@ -29,13 +53,13 @@
 			})
 			.enter()
 			.append('li')
-			.text((description)=>{
+			.text((description)=>{				
 				return description.rsid;
 			})
+			.style("background-color", (d)=>returnAcidColor(d));
+			
+
 		});
-
-
-
 	</script>
 </body>
 </html>
