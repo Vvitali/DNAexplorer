@@ -1,0 +1,27 @@
+{
+  "name": "dnaexplorer",
+  "version": "0.0.1",
+  "description": "DNA explorer - app for observing DNA chain\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D decrypted DNA chains in digitarmat",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Vvitali/DNAexplorer.git"
+  },
+  "keywords": [
+    "dna",
+    "explorer",
+    "chains",
+    "snp",
+    "nucleotide",
+    "polymorphisms"
+  ],
+  "author": "Vvitali",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Vvitali/DNAexplorer/issues"
+  },
+  "homepage": "https://github.com/Vvitali/DNAexplorer#readme"
+}
