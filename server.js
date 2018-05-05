@@ -1,8 +1,10 @@
-let app = require("express")();
+let express = require("express");
+let app = express();
 let fs = require('fs');
 let bodyParser = require('body-parser')
 var DEBUG = true;
 let PORT = 8080;	 
+app.use(express.static('public'))
 app.get("/rsids/:number", (req, res)=>{
 	DEBUG && console.log("Page: /rsids/:number");
 	let parsedDna = [];
