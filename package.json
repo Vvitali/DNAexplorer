@@ -1,14 +1,14 @@
 {
   "name": "dnaexplorer",
   "version": "0.0.1",
-  "description": "DNA explorer - app for observing DNA chain\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D decrypted DNA chains in digitarmat",
+  "description": "DNA explorer - app for observing decrypted DNA-chains in digital format, app show information about single nucleotide polymorphisms, and provide a brief describtion - it may helps to determine if you have certain genetic predisposition to diseases, and show hidden information encoded in your DNA (your ancestries, phenotypes, predisposition to sport)",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/Vvitali/DNAexplorer.git"
+    "url": "https://github.com/Vvitali/DNAexplorer"
   },
   "keywords": [
     "dna",
