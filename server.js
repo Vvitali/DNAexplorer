@@ -36,9 +36,10 @@ app.get("/", (req,res)=>{
 	fs.readFile("./public/index.html", (error, page)=>{
 		error && (()=>{
 			console.log("Error has been detected in the main route! No index.html pages");
-			res.send("Server under maintain!");
+			res.status(404).send("Server under maintain!");
 		})();
-		res.send(page);
+		res.write(page);
+		res.status(200).end();
 	});
 })
 app.listen(PORT, ()=>{

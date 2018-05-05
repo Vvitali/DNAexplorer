@@ -7,16 +7,34 @@
 	src="https://code.jquery.com/jquery-3.3.1.js"
 	integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
 	crossorigin="anonymous"></script>
+	<script src="https://d3js.org/d3.v5.js"></script>
 </head> 	
 <body>
-	<div id="main"></div>
+	<div id="main">
+		<li></li>
+	</div>
 	<script>
 		console.log("start!");
-
-		$.get("/dna", (data, error)=>{
+		var mainD = d3.select(main);
+		var SNPs = null;
+		$.get("/rsids/10", (data, error)=>{
 			console.log("Data retrieved!");
+			console.log(data)
+			SNPs = data;
+			mainD.selectAll('li')
+			.data(SNPs)
+			.text((description)=>{
+				return description.rsid;
+			})
+			.enter()
+			.append('li')
+			.text((description)=>{
+				return description.rsid;
+			})
+		});
 
-		})
+
+
 	</script>
 </body>
 </html>
