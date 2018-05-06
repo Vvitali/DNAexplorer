@@ -26,3 +26,9 @@ li{
 li{
 	list-style-type: none;
 }
+
+@media screen and (min-width: 700px){
+	.rsid{
+		width: 45%;
+	}
+}
