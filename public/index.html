@@ -15,9 +15,9 @@
 		<li></li>
 	</div>
 	<script>
-		let returnAcidColor = (snp)=>{
-			console.log(snp.allele1)
-			switch(snp.allele1){
+		let returnAcidColor = (allele)=>{
+			console.log(allele)
+			switch(allele){
 				case "A":
 				return "green";
 				break;
@@ -37,7 +37,11 @@
 				return "white";
 				break;
 			} 
-		}
+		};
+		let returnSnpColors = (snp)=>{
+			console.log(returnAcidColor(snp.allele1)+","+ returnAcidColor(snp.allele2))
+			return returnAcidColor(snp.allele1)+","+ returnAcidColor(snp.allele2);
+		};
 
 		console.log("start!");
 		var mainD = d3.select(main);
@@ -56,9 +60,8 @@
 			.text((description)=>{				
 				return description.rsid;
 			})
-			.style("background-color", (d)=>returnAcidColor(d))
+			.style("background", "linear-gradient(to right,"+(d)=>returnSnpColors(d)+") ")
 			.attr("class", "rsid");
-			
 
 		});
 	</script>
