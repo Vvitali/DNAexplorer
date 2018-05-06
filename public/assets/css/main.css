@@ -1,11 +1,11 @@
 .rsid{ 
 	font-size: 15px;
+	width: 50%;
 	margin-right: 2px;
 	min-height: 25px;
 	min-width: 20px;
 	background-color: gray;
 	border: 1px solid #fff;
-	width: 15%;
 	color: white;
 	font-size: 20px;
 	padding: 2px;

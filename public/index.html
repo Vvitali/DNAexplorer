@@ -39,8 +39,7 @@
 			} 
 		};
 		let returnSnpColors = (snp)=>{
-			console.log(returnAcidColor(snp.allele1)+","+ returnAcidColor(snp.allele2))
-			return returnAcidColor(snp.allele1)+","+ returnAcidColor(snp.allele2);
+			return "linear-gradient(to right,"+ returnAcidColor(snp.allele1)+" 50%,"+ returnAcidColor(snp.allele2)+" 50%)";
 		};
 
 		console.log("start!");
@@ -48,7 +47,6 @@
 		var SNPs = null;
 		$.get("/rsids/20", (data, error)=>{
 			console.log("Data retrieved!");
-			console.log(data)
 			SNPs = data;
 			mainD.selectAll('li')
 			.data(SNPs)
@@ -58,11 +56,10 @@
 			.enter()
 			.append('li')
 			.text((description)=>{				
-				return description.rsid;
+				return description.rsid+ ":"+description.allele1+ description.allele2;
 			})
-			.style("background", "linear-gradient(to right,"+(d)=>returnSnpColors(d)+") ")
+			.style("background", (d)=>returnSnpColors(d))
 			.attr("class", "rsid");
-
 		});
 	</script>
 </body>
