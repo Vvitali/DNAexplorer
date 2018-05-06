@@ -56,7 +56,7 @@
 			mainD.selectAll('li')
 			.data(SNPs)
 			.text((description)=>{
-				return description.rsid;
+				return "RSID:";
 			})
 			.enter()
 			.append('li')
