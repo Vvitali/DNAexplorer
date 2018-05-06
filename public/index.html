@@ -56,7 +56,8 @@
 			.text((description)=>{				
 				return description.rsid;
 			})
-			.style("background-color", (d)=>returnAcidColor(d));
+			.style("background-color", (d)=>returnAcidColor(d))
+			.attr("class", "rsid");
 			
 
 		});
