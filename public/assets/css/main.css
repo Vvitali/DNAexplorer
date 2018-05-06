@@ -26,7 +26,7 @@ li{
 	list-style-type: none;
 }
 
-@media screen and (min-width: 700px){
+@media screen and (max-width: 700px){
 	.rsid{
 		width: 45%;
 		font-size: 22px;
