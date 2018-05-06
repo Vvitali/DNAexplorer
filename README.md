@@ -2,8 +2,18 @@ DNA explorer - app for observing decrypted DNA-chains in digital format, app sho
 
 
 TODO list:
+
+
 Visualization of SNPs - DONE
+
+
 Visualization of alleles - DONE
+
+
 Paging - TODO
+
+
 Show description for each SNP - TODO
+
+
 Search by description - TODO
