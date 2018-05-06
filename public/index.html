@@ -45,7 +45,7 @@
 		console.log("start!");
 		var mainD = d3.select(main);
 		var SNPs = null;
-		$.get("/rsids/20", (data, error)=>{
+		$.get("/rsids/100", (data, error)=>{
 			console.log("Data retrieved!");
 			SNPs = data;
 			mainD.selectAll('li')
