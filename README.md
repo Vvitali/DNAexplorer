@@ -3,6 +3,7 @@ DNA explorer - app for observing decrypted DNA-chains in digital format, app sho
 
 TODO list:
 
+Recreate the project in react.js, instead of using d3.js - TODO;
 
 Visualization of SNPs - DONE
 
