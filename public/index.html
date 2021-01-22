@@ -1,71 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<title>DNA explorer</title>
-	<script
-	src="https://code.jquery.com/jquery-3.3.1.js"
-	integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-	crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.js"
+		integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 	<script src="https://d3js.org/d3.v5.js"></script>
 	<link rel="stylesheet" href="./assets/css/main.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+		crossorigin="anonymous"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head> 	
+</head>
+
 <body>
 	<nav>
 		<h1>DNA explorer</h1>
-		<h2>This is not a scienthific project, use only for personal purposes with data received from trusted recources. This app uses only open-source data.</h2>
+		<h2>This is not a scienthific project, use only for personal purposes with data received from trusted recources.
+			This app uses only open-source data.</h2>
 	</nav>
-	<div id="main">
+
+	<div class="container">
+		<div class="d-flex flex-row flex-wrap" id="main">
+		</div>
+	</div>
+	<div>
 		<li></li>
 	</div>
 	<script>
-		let returnAcidColor = (allele)=>{
+		let returnAcidColor = (allele) => {
 			console.log(allele)
-			switch(allele){
+			switch (allele) {
 				case "A":
-				return "green";
-				break;
+					return "green";
+					break;
 				case "C":
-				return "orange";
-				break;
+					return "orange";
+					break;
 				case "G":
-				return "blue";
-				break;
+					return "blue";
+					break;
 				case "T":
-				return "red";
-				break;
+					return "red";
+					break;
 				case "U":
-				return "green";
-				break;
+					return "green";
+					break;
 				default:
-				return "white";
-				break;
-			} 
+					return "white";
+					break;
+			}
 		};
-		let returnSnpColors = (snp)=>{
-			return "linear-gradient(to right,"+ returnAcidColor(snp.allele1)+" 50%,"+ returnAcidColor(snp.allele2)+" 50%)";
+		let returnSnpColors = (snp) => {
+			return "linear-gradient(to right," + returnAcidColor(snp.allele1) + " 50%," + returnAcidColor(snp.allele2) + " 50%)";
 		};
 
 		console.log("start!");
 		var mainD = d3.select(main);
 		var SNPs = null;
-		$.get("/rsids/100", (data, error)=>{
+		$.get("/rsids/500", (data, error) => {
 			console.log("Data retrieved!");
 			SNPs = data;
 			mainD.selectAll('li')
-			.data(SNPs)
-			.text((description)=>{
-				return "RSID:";
-			})
-			.enter()
-			.append('li')
-			.text((description)=>{				
-				return description.rsid+ ":"+description.allele1+ description.allele2;
-			})
-			.style("background", (d)=>returnSnpColors(d))
-			.attr("class", "rsid");
+				.data(SNPs)
+				.text((description) => {
+					return "RSID:";
+				})
+				.enter()
+				.append('li')
+				.text((description) => {
+					return description.rsid + ":" + description.allele1 + description.allele2;
+				})
+				.style("background", (d) => returnSnpColors(d))
+				.attr("class", "rsid p-2");
 		});
 	</script>
 </body>
+
 </html>
