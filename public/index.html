@@ -24,7 +24,7 @@
 	</nav>
 
 	<div class="container">
-		<div class="d-flex flex-row flex-wrap" id="main">
+		<div class="d-flex flex-row flex-wrap justify-content-center" id="main">
 		</div>
 	</div>
 	<div>
@@ -70,12 +70,18 @@
 					return "RSID:";
 				})
 				.enter()
-				.append('li')
+				.append('div').attr("class", "p-2")
+				.append('a')
 				.text((description) => {
 					return description.rsid + ":" + description.allele1 + description.allele2;
 				})
 				.style("background", (d) => returnSnpColors(d))
-				.attr("class", "rsid p-2");
+				.attr("class", "rsid p-2")
+				.attr("href", (description) => {
+					return "http://snpedia.com/index.php/" + description.rsid
+				})
+				.attr("target", "_blank")
+
 		});
 	</script>
 </body>
