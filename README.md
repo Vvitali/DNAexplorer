@@ -6,10 +6,10 @@ app for observing decrypted DNA-chains in digital format, app show information a
 
 ## TODO list
 
-Recreate the project in react.js, instead of using d3.js - TODO;
 
 - [x] Visualization of SNPs
 - [x] Visualization of alleles
+- [ ] Recreate the project in react.js, instead of using d3.js - TODO
 - [ ] Paging
 - [ ] Show description for each SNP
 - [ ] Search by description
